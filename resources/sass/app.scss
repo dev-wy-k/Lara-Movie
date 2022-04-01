@@ -9,6 +9,11 @@ $dark: #212d40;
 $info: #5B6162;
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/css/all.css';
+.form-control::placeholder {
+    color: white;
+    opacity: 1;
+}
+
 .absolute {
     position: absolute;
     z-index: 2000;
