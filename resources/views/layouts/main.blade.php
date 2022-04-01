@@ -35,7 +35,7 @@
                                 <a class="nav-link text-primary" href="#">TV Shows</a>
                             </li> 
                             <li class="nav-item">
-                                <a class="nav-link text-primary" href="#">Actors</a>
+                                <a class="nav-link text-primary" href="{{ route('actors.index') }}">Actors</a>
                             </li>                
                         </ul>
                         <div class="ml-auto">
@@ -53,7 +53,7 @@
         </div>      
         
         <script src="/js/app.js"></script>
-        @yield('foot')
         @livewireScripts
+        @yield('foot')
     </body>
 </html>

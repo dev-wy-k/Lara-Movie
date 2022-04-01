@@ -75,11 +75,11 @@
         </div>
         @foreach($movie['cast'] as $cast)
             @if(isset($cast['profile_path']) )
-                <div class="col-6 col-md-4 col-lg-2">
+                <a href="{{ route('actors.show', $cast['id']) }}" class="col-6 col-md-4 col-lg-2 text-decoration-none">
                     <img src="{{ 'https://image.tmdb.org/t/p/w300/'.$cast['profile_path'] }}" class="img-fluid" alt="">
                     <h5 class="text-white mb-0 mt-2">{{ $cast['name'] }}</h5>
                     <p class="text-white mb-0">{{ $cast['character'] }}</p>
-                </div>
+                </a>
             @endif
         @endforeach
     </div>
