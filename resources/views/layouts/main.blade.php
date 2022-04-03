@@ -3,14 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="stylesheet" href="/css/app.css">
+        <link rel="stylesheet" href="{{ asset('owl/dist/assets/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('owl/dist/assets/owl.theme.default.css') }}">
+        
+        <link rel="stylesheet" href="/css/app.css">      
 
         <title>Movie App</title>
 
         @yield('head')
         @livewireStyles
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
     <body class="bg-dark">
         <div class="container min-vh-100">
@@ -50,10 +51,10 @@
                     @yield('content')
                 </div>
             </div>
-        </div>      
-        
-        <script src="/js/app.js"></script>
+        </div>
         @livewireScripts
+        <script src="/js/app.js"></script>
+        <script src="{{ asset('owl/dist/owl.carousel.min.js') }}"></script>
         @yield('foot')
     </body>
 </html>

@@ -15568,17 +15568,17 @@ a.text-dark:focus {
 }
 
 .form-control::-moz-placeholder {
-  color: white;
+  color: #f2e9e4;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: white;
+  color: #f2e9e4;
   opacity: 1;
 }
 
 .form-control::placeholder {
-  color: white;
+  color: #f2e9e4;
   opacity: 1;
 }
 
