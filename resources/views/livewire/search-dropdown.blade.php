@@ -2,8 +2,8 @@
     <div class="form-inline my-2 my-lg-0">
         <input 
         wire:model.debounce.500ms="search" 
-        class="form-control form-control-lg mr-sm-2 bg-info border-0 rounded text-white" 
-        type="search" placeholder="Search(Press / to focus)" aria-label="Search"
+        class="form-control form-control-sm  mr-sm-2 bg-info border-0 rounded text-white" 
+        type="search" placeholder="Search (Press / to focus)" aria-label="Search"
         x-ref="search"
         @keydown.window="
             if(event.keyCode === 191){

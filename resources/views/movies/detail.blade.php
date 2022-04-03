@@ -88,7 +88,7 @@
     <hr>
     <!-- Image  -->
 
-    <div class="row justify-content-center align-items-center mb-5">
+    <div class="row justify-content-center align-items-center">
         <div class="col-12">
             <h3 class="text-primary mb-3">Images</h3>
         </div>

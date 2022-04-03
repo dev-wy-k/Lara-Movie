@@ -9,6 +9,17 @@ $dark: #212d40;
 $info: #5B6162;
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/css/all.css';
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    z-index: 1005;
+    background-color: #212d4095;
+    backdrop-filter: blur(10px);
+}
+
 .form-control::placeholder {
     color: #f2e9e4;
     opacity: 1;
@@ -16,8 +27,10 @@ $info: #5B6162;
 
 .absolute {
     position: absolute;
+    right: 20px;
     z-index: 2000;
-    width: 200px;
+    width: 250px;
+    margin-top: 10px;
 }
 
 .search-list {
@@ -36,4 +49,34 @@ $info: #5B6162;
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+@media screen and (max-width: 830px) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px 20px;
+        // padding: 0;
+    }
+    .nav-link {
+        padding: 10px 20px;
+        text-align: center;
+        margin: 10px 0;
+    }
+    .nav-link:hover {
+        opacity: 0.9;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .navbar {
+        padding: 10px 10px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .navbar {
+        padding: 10px 5px;
+    }
 }

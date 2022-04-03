@@ -16,19 +16,26 @@
     <body class="bg-dark">
         <div class="container min-vh-100">
             <div class="row py-2">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
-                    <a class="navbar-brand" href="{{ route('movie.index') }}">
+                <nav class="navbar navbar-expand-lg navbar-dark w-100">
+                    <a class="navbar-brand mr-0 mr-md-3" href="{{ route('movie.index') }}">
                         <div class="d-flex align-items-center">
                             <i class="fas fa-compact-disc fa-2x text-primary mr-2"></i>
                             <span class="text-primary h4 mb-0">Movie App</span>
                         </div>
                     </a>
-                    <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+
+                    <div class="d-flex align-items-center">
+                        <div class="d-block d-lg-none">
+                            <livewire:search-dropdown /> 
+                        </div>
+    
+                        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>  
+                    </div>                  
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-3">
+                        <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link text-primary" href="{{ route('movie.index') }}">Movie</a>
                             </li>
@@ -39,18 +46,26 @@
                                 <a class="nav-link text-primary" href="{{ route('actors.index') }}">Actors</a>
                             </li>                
                         </ul>
-                        <div class="ml-auto">
+                        <div class="ml-auto d-none d-lg-block">
                             <livewire:search-dropdown /> 
                         </div>
                     </div>
                 </nav>
             </div>
                      <hr>           
-            <div class="row py-3">                
+            <div class="row py-4 py-lg-5">                
                 <div class="container">                        
                     @yield('content')
                 </div>
             </div>
+        </div>
+
+        <div class="text-center text-white p-2">
+            <p>
+                Copy Right © 2022 <a href="{{ route('movie.index') }}" target="_blink" class="text-white text-decoration-none">Movie App</a> |
+                Created by <a href="https://github.com/vlain01" target="_blink" class="text-white text-decoration-none">Wai
+                    Yan Kyaw</a>
+            </p>
         </div>
         @livewireScripts
         <script src="/js/app.js"></script>
