@@ -80,12 +80,12 @@
 
     <!-- Credits  -->
 
-    <div class="row">
+    <div class="row my-0">
         <div class="col-12">
             <h3 class="text-primary mb-3">Credits</h3>
         </div>
 
-        <ul>
+        <ul class="">
             @foreach ($credits as $credit)                
                 <li class="text-white h5 p-2">{{ $credit['release_year'] }} &middot; <strong class="text-primary">{{ $credit['title'] }}</strong> {{ $credit['character'] }}</li>
             @endforeach

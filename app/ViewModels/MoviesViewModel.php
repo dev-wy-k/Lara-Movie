@@ -11,12 +11,14 @@ class MoviesViewModel extends ViewModel
     public $nowPlayingMovies;
     public $popularMovies;
     public $genres;
+    public $page;
     
-    public function __construct($popularMovies, $nowPlayingMovies, $genres)
+    public function __construct($popularMovies, $nowPlayingMovies, $genres, $page)
     {
         $this->popularMovies = $popularMovies;
         $this->nowPlayingMovies = $nowPlayingMovies;
         $this->genres = $genres;
+        $this->page = $page;
     }
 
     public function popularMovies(){
@@ -40,7 +42,6 @@ class MoviesViewModel extends ViewModel
     }
 
     public function formatMovies($movies){
-
         return collect($movies)->map(function($movie){
 
             $genreFormatted = collect($movie['genre_ids'])->mapWithKeys(function($value){
@@ -49,7 +50,9 @@ class MoviesViewModel extends ViewModel
 
             return collect($movie)->merge([
                 'title' => Str::words($movie['title'], 3, ' ...'),
-                'poster_path' => "https://image.tmdb.org/t/p/w500/".$movie['poster_path'],
+                'poster_path' => $movie['poster_path'] 
+                ?  "https://image.tmdb.org/t/p/w500/".$movie['poster_path']
+                : 'https://babytorrent.uno/img/default_thumbnail.svg' ,
                 'vote_average' => $movie['vote_average'] * 10 .'%',
                 'release_date' => Carbon::parse($movie['release_date'])->format('d M, Y'),
                 'genres' => $genreFormatted,
@@ -58,5 +61,13 @@ class MoviesViewModel extends ViewModel
             ]);
         }) ;
 
+    }
+
+    public function previous(){
+        return $this->page > 1 ? $this->page - 1 : null ;
+    }
+
+    public function next(){
+        return $this->page < 59 ? $this->page + 1 : null ;
     }
 }
