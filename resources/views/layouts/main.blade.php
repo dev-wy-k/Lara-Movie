@@ -5,8 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('owl/dist/assets/owl.carousel.min.css') }}">
         <link rel="stylesheet" href="{{ asset('owl/dist/assets/owl.theme.default.css') }}">
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+        <link rel="stylesheet" href="/css/app.css">   
         
-        <link rel="stylesheet" href="/css/app.css">      
+        <!-- Primary Meta Tags -->
+        <title>Movies Website</title>
+        <meta name="title" content="Movies Website">
+        <meta name="description" content="With Laravel and TMDB API Dev By WYK">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://metatags.io/">
+        <meta property="og:title" content="Movies Website">
+        <meta property="og:description" content="With Laravel and TMDB API Dev By WYK">
+        <meta property="og:image" content="{{ asset('meta.png') }}">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://metatags.io/">
+        <meta property="twitter:title" content="Movies Website">
+        <meta property="twitter:description" content="With Laravel and TMDB API Dev By WYK">
+        <meta property="twitter:image" content="{{ asset('meta.png') }}">
 
         <title>Movie App</title>
 
@@ -40,11 +59,14 @@
                                 <a class="nav-link text-primary" href="{{ route('movie.index') }}">Movie</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-primary" href="#">TV Shows</a>
+                                <a class="nav-link text-primary" href="{{ route('tv.index') }}">TV Shows</a>
                             </li> 
                             <li class="nav-item">
                                 <a class="nav-link text-primary" href="{{ route('actors.index') }}">Actors</a>
-                            </li>                
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" href="{{ route('about.index') }}">About</a>
+                            </li>                 
                         </ul>
                         <div class="ml-auto d-none d-lg-block">
                             <livewire:search-dropdown /> 
@@ -58,15 +80,16 @@
                     @yield('content')
                 </div>
             </div>
-        </div>
 
-        <div class="text-center text-white p-2">
-            <p>
-                Copy Right © 2022 <a href="{{ route('movie.index') }}" target="_blink" class="text-white text-decoration-none">Movie App</a> |
-                Created by <a href="https://github.com/vlain01" target="_blink" class="text-white text-decoration-none">Wai
-                    Yan Kyaw</a>
-            </p>
+            <div class="text-center text-white p-2">
+                <p>
+                    Copy Right © 2022 <a href="{{ route('movie.index') }}"class="text-white text-decoration-none">Movie App</a> |
+                    Created by <a href="{{ route('about.index') }}" class="text-white text-decoration-none">Wai
+                        Yan Kyaw</a>
+                </p>
+            </div>
         </div>
+        
         @livewireScripts
         <script src="/js/app.js"></script>
         <script src="{{ asset('owl/dist/owl.carousel.min.js') }}"></script>

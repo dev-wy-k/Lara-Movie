@@ -1,27 +1,27 @@
 @extends('layouts.main')
 
 @section('content')
- <!-- Popular Section  -->
+ <!-- Popular Tv Section  -->
  <div class="row justify-content-centr align-items-start mb-3">
         <div class="col-12">
-            <h3 class="text-primary mb-3">Popular Movies</h3>
+            <h3 class="text-primary mb-3">Popular Shows</h3>
         </div>
 
         <div class="owl-carousel sliderr owl-theme" >
-            @foreach($popularMovies as $movie)
+            @foreach($popularTv as $tvShow)
                 <div class="item p-2 p-md-0">
                     <div class="mb-3 mb-lg-3">
-                        <a href="{{ route('movie.show',$movie['id']) }}" class="mb-3">
-                            <img src="{{ $movie['poster_path'] }}" class="img-fluid" alt="poster">
+                        <a href="{{ route('tv.show',$tvShow['id']) }}" class="mb-3">
+                            <img src="{{ $tvShow['poster_path'] }}" class="img-fluid" alt="poster">
                         </a>
                         <div class="mt-2">
-                            <a href="{{ route('movie.show',$movie['id']) }}" class="text-white mb-0 h5 font-weight-bolder text-decoration-none">{{ $movie['title'] }}</a>
+                            <a href="{{ route('tv.show',$tvShow['id']) }}" class="text-white mb-0 h5 font-weight-bolder text-decoration-none">{{ $tvShow['name'] }}</a>
                             <p class="text-white mb-0">
-                                <small class="text-primary">{{ $movie['vote_average'] }}</small>
-                                {{ $movie['release_date'] }}
+                                <small class="text-primary">{{ $tvShow['vote_average'] }}</small>
+                                {{ $tvShow['first_air_date'] }}
                             </p>
                             <small class="text-white">
-                                {{ $movie['genres'] }}
+                                {{ $tvShow['genres'] }}
                             </small>
                         </div>
                     </div>
@@ -31,34 +31,35 @@
                  
         
     </div>
-    <!-- Popular Section End  -->
+    <!-- Popular Tv Section End  -->
 
-    <!-- Now Playing Section  -->
+    <!-- Top Rated Show Section  -->
 
     <div class="row justify-content-center align-items-start">
         <div class="col-12">
-            <h3 class="text-primary mb-3">Now Playing Movies</h3>
+            <h3 class="text-primary mb-3">Top Rated Shows</h3>
         </div>
 
-        @foreach($nowPlayingMovies as $movie)
-            <x-movie-card :movie="$movie" ></x-movie-card>
+        @foreach($topRatedShow as $tvShow)
+            <x-tv-card :tvShow="$tvShow" ></x-tv-card>
         @endforeach       
+
     </div>
 
     
     <div class="row justify-content-between p-3">
         <div class="">
             @if ($previous)
-                <a href="/page/{{ $previous }}" class="btn btn-outline-light text-primary">Previous</a>
+                <a href="/tv/page/{{ $previous }}" class="btn btn-outline-light text-primary">Previous</a>
             @endif
         </div>
         <div class="">
             @if ($next)
-                <a href="/page/{{ $next }}" class="btn btn-outline-light text-primary">Next</a>
+                <a href="/tv/page/{{ $next }}" class="btn btn-outline-light text-primary">Next</a>
             @endif
         </div>
     </div> 
-    <!-- Now Playing Section End -->
+    <!-- Top Rated Show Section End -->
 @endsection
 
 @section('foot')

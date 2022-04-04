@@ -63,7 +63,7 @@
             <div class="row justify-content-center">
                 @foreach ($knownForMovie as $movie)                    
                     <div class="col-6 col-lg-3 ">
-                        <a href="{{ route('movie.show', $movie['id']) }}" class="text-decoration-none text-center">
+                        <a href="{{ $movie['linkToPage'] }}" class="text-decoration-none text-center">
                             <div class="text-center mb-2">
                                 <img src="{{ $movie['poster_path'] }}" class="img-fluid" alt="poster">
                             </div>
