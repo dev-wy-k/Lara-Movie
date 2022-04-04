@@ -25,9 +25,10 @@ class ActorViewModel extends ViewModel
             'profile_path' => $this->actor['profile_path']
             ? 'https://www.themoviedb.org/t/p/w300'.$this->actor['profile_path']
             : 'https://ui-avatars.com/api/?size=235&name='.$this->actor['name'],
-        ])->only([
-            'birthday', 'age', 'profile_path', 'name', 'place_of_birth', 'biography', 'homepage'
         ]);
+        // ->only([
+        //     'birthday', 'age', 'profile_path', 'name', 'place_of_birth', 'biography', 'homepage'
+        // ]);
     }
 
     public function social(){
@@ -44,15 +45,24 @@ class ActorViewModel extends ViewModel
 
         $castMovie = collect($this->credits)->get('cast');
 
-        return collect($castMovie)->where('media_type', 'movie')->sortByDesc('popularity')->take(4)
-        ->map(function($movie){
+        return collect($castMovie)->sortByDesc('popularity')->take(4)->map(function($movie){
+
+            if(isset($movie['title'])){
+                $title = $movie['title'];
+            }else if(isset($movie['name'])){
+                $title = $movie['name'];
+            }else{
+                $title = 'Untitled';
+            }
+
             return collect($movie)->merge([
-                'title' => isset($movie['title']) ? $movie['title'] : "Untitled" ,
+                'title' => $title ,
                 'poster_path' => $movie['poster_path'] 
                 ?'https://image.tmdb.org/t/p/w185'.$movie['poster_path'] 
                 : 'https://babytorrent.uno/img/default_thumbnail.svg',
+                'linkToPage' => $movie['media_type'] === 'movie' ? route('movie.show', $movie['id']) : route('tv.show', $movie['id']),
             ])->only([
-                'title', 'id', 'poster_path'
+                'title', 'id', 'poster_path', 'linkToPage'
             ]);
         });
 

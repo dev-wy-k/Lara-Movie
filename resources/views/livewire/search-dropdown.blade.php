@@ -28,19 +28,43 @@
             <div class="mb-3">
                 @if (count($searchResults) > 0)            
                 @foreach ($searchResults as $result)
-                    <a href="{{ route('movie.show', $result['id']) }}" 
+                    <a href="
+                    @if ($result['media_type'] === 'movie' )
+                        {{ route('movie.show', $result['id']) }}
+                    @elseif($result['media_type'] == 'tv' )
+                        {{ route('tv.show', $result['id']) }}
+                    @else
+                        {{ route('actors.show', $result['id']) }}
+                    @endif 
+                    " 
                     class="border-bottom bg-info px-3 py-2 mb-0 d-flex justify-content-start align-items-center"
                     @if($loop->last) @keydown.tab.exact="isOpen = false" @endif
                     >
                         <div  class="w-25 mr-1">
-                            @if ($result['poster_path'])
-                            <img src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" class="w-75" alt="poster">
-                            @else
-                            <img src="https://babytorrent.uno/img/default_thumbnail.svg" class="w-75" alt="poster">
+                            @if (isset($result['poster_path']))
+                                @if (!$result['poster_path'] == null)
+                                <img src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" class="w-75" alt="poster">
+                                @else
+                                <img src="https://babytorrent.uno/img/default_thumbnail.svg" class="w-75" alt="poster">
+                                @endif                                
+                            @endif                                
+                            @if(isset($result['profile_path']))
+                                @if (!$result['profile_path'] == null)
+                                <img src="https://image.tmdb.org/t/p/w92/{{ $result['profile_path'] }}" class="w-75" alt="poster">
+                                @else
+                                <img src="https://babytorrent.uno/img/default_thumbnail.svg" class="w-75" alt="poster">
+                                @endif 
                             @endif
+
+                            
+
                         </div>
                         <span class="text-white text-decoration-none w-75">
-                            {{ Str::words($result['title'], 3, '...') }}
+                            @if (isset($result['title']))
+                                {{ Str::words($result['title'], 3, '...') }}
+                            @else    
+                                {{ Str::words($result['name'], 3, '...') }}
+                            @endif
                         </span>                        
                     </a>
                 @endforeach
