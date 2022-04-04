@@ -7,7 +7,7 @@
             <h3 class="text-primary mb-3">Popular Movies</h3>
         </div>
         @foreach($popularMovies as $movie)
-            <x-movie-card :movie="$movie" :genres="$genres"></x-movie-card>
+            <x-movie-card :movie="$movie" ></x-movie-card>
         @endforeach       
     </div>
     <!-- Popular Section End  -->
@@ -20,7 +20,7 @@
         </div>
 
         @foreach($nowPlayingMovies as $movie)
-            <x-movie-card :movie="$movie" :genres="$genres"></x-movie-card>
+            <x-movie-card :movie="$movie" ></x-movie-card>
         @endforeach       
 
     <!-- Now Playing Section End -->

@@ -15567,6 +15567,21 @@ a.text-dark:focus {
   }
 }
 
+.form-control::-moz-placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  color: white;
+  opacity: 1;
+}
+
 .absolute {
   position: absolute;
   z-index: 2000;

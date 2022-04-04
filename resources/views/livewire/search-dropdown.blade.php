@@ -1,6 +1,6 @@
 <div>
     <div class="form-inline my-2 my-lg-0" x-data="{ isOpen:true }" @click.away="isOpen=false">
-        <input wire:model.debounce.500ms="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input wire:model.debounce.500ms="search" class="form-control mr-sm-2 bg-info border-0 text-white" type="search" placeholder="Search" aria-label="Search">
     </div>
 
     @if (strlen($search) > 2 )
@@ -18,7 +18,7 @@
                             @endif
                         </a>
                         <a href="{{ route('movie.show', $result['id']) }}" class="text-white text-decoration-none w-75">
-                            {{ $result['title'] }}
+                            {{ Str::words($result['title'], 3, '...') }}
                         </a>                        
                     </div>
                 @endforeach

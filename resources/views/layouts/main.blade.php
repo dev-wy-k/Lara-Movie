@@ -19,7 +19,7 @@
                     <a class="navbar-brand" href="{{ route('movie.index') }}">
                         <div class="d-flex align-items-center">
                             <i class="fas fa-compact-disc fa-2x text-primary mr-2"></i>
-                            <span class="text-primary">Movie App</span>
+                            <span class="text-primary h4 mb-0">Movie App</span>
                         </div>
                     </a>
                     <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,15 +27,20 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto">
+                        <ul class="navbar-nav ml-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link text-primary" href="{{ route('movie.index') }}">Movie</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link text-primary" href="#">TV Shows</a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link text-primary" href="#">Actors</a>
                             </li>                
                         </ul>
-                        <livewire:search-dropdown /> 
+                        <div class="ml-auto">
+                            <livewire:search-dropdown /> 
+                        </div>
                     </div>
                 </nav>
             </div>
