@@ -38,14 +38,34 @@
                 @endforeach
             </div>
             @if(count($movie['videos']['results']) > 0 )
-            <a href="https://www.youtube.com/watch?v={{ $movie['videos']['results'][0]['key'] }}" target="_blink" class="btn btn-primary">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                 <i class="fas fa-play mr-2"></i>
                 Play Trailer
-            </a>
+            </button>
             @endif
         </div>
     </div>
     <!-- Movie Info End  -->
+    
+    <!--Trailer Modal -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title text-white" id="staticBackdropLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="videoWrapper">
+                        <iframe width="560" height="349" src="https://www.youtube.com/embed/{{ $movie['videos']['results'][0]['key'] }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <hr>
 
@@ -76,12 +96,41 @@
         </div>
         @foreach($movie['images']['backdrops'] as $photo)
             @if($loop->index < 9)
-                <div class="col-6 col-md-4 mb-3">
+                <div class="col-6 col-md-4 mb-3" data-toggle="modal" data-target="#ImageModel{{ $loop->index }}">
                     <img src="{{ 'https://image.tmdb.org/t/p/w500/'.$photo['file_path'] }}" class="img-fluid" alt="">
-                </div>        
+                    
+                </div> 
+
+                <!--Image Modal -->
+                <div class="modal fade" id="ImageModel{{ $loop->index }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header">
+                                <h5 class="modal-title text-white" id="staticBackdropLabel"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" class="text-white">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-white">
+                                    <img src="{{ 'https://image.tmdb.org/t/p/original/'.$photo['file_path'] }}" class="img-fluid" alt="">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                    
             @endif
         @endforeach
     </div>
 
     <!-- Image End -->
+
+    <!-- Button trigger modal -->
+    {{-- <button type="button" class="btn btn-primary">
+        Launch static backdrop modal
+    </button> --}}
+    
+    
 @endsection

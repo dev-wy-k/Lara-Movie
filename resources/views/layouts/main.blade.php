@@ -9,9 +9,11 @@
         <title>Movie App</title>
 
         @yield('head')
+        @livewireStyles
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
-    <body>
-        <div class="container-fluid bg-dark min-vh-100">
+    <body class="bg-dark">
+        <div class="container min-vh-100">
             <div class="row py-2">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
                     <a class="navbar-brand" href="{{ route('movie.index') }}">
@@ -33,10 +35,7 @@
                                 <a class="nav-link" href="#">About</a>
                             </li>                
                         </ul>
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
+                        <livewire:search-dropdown /> 
                     </div>
                 </nav>
             </div>
@@ -49,5 +48,7 @@
         </div>      
         
         <script src="/js/app.js"></script>
+        @yield('foot')
+        @livewireScripts
     </body>
 </html>
