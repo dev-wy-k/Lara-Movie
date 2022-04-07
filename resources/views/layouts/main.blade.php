@@ -15,14 +15,14 @@
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://metatags.io/">
+        <meta property="og:url" content="http://wyk.mms-student.online/">
         <meta property="og:title" content="Movies Website">
         <meta property="og:description" content="With Laravel and TMDB API Dev By WYK">
         <meta property="og:image" content="{{ asset('meta.png') }}">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://metatags.io/">
+        <meta property="twitter:url" content="http://wyk.mms-student.online/">
         <meta property="twitter:title" content="Movies Website">
         <meta property="twitter:description" content="With Laravel and TMDB API Dev By WYK">
         <meta property="twitter:image" content="{{ asset('meta.png') }}">
