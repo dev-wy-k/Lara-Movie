@@ -11,25 +11,25 @@
 
                 <div class="d-flex justify-content-center"> 
                     <span class="ml-3 mt-3">
-                        <a href="https://www.facebook.com/v.lain.01/" title="Facebook" class="text-primary text-decoration-none">
+                        <a href="https://www.facebook.com/v.lain.01/" target="_blank" title="Facebook" class="text-primary text-decoration-none">
                             <i class="fab fa-facebook fa-2x"></i>
                         </a>
                     </span>
                     
                     <span class="ml-3 mt-3">
-                        <a href="https://github.com/vlain01" title="GitHub" class="text-primary text-decoration-none">
+                        <a href="https://github.com/dev-wy-k" title="GitHub" target="_blank" class="text-primary text-decoration-none">
                             <i class="fab fa-github fa-2x"></i>
                         </a>
                     </span>
                     
                     <span class="ml-3 mt-3">
-                        <a href="https://www.linkedin.com/in/wai-yan-kyaw-dev/" title="LinkIn" class="text-primary text-decoration-none">
+                        <a href="https://www.linkedin.com/in/wai-yan-kyaw-dev/" target="_blank" title="LinkIn" class="text-primary text-decoration-none">
                             <i class="fab fa-linkedin fa-2x"></i>
                         </a>
                     </span>
                     
                     <span class="ml-3 mt-3">
-                        <a href="https://vlain01.github.io/Portfolio/" title="Website" class="text-primary text-decoration-none">
+                        <a href="https://dev-wy-k.github.io/Portfolio/" target="_blank" title="Website" class="text-primary text-decoration-none">
                             <i class="fas fa-globe-asia fa-2x"></i>
                         </a>
                     </span>
@@ -50,8 +50,7 @@
                 I want to create many projects for client needs so do you have to need something about the website? <br>  
             </p>
 
-            <a href="https://www.facebook.com/v.lain.01/" class="btn btn-primary text-white">You Can Hire Me!</a>
-
+            <a href="https://t.me/dev_wyk" target="_blank" class="btn btn-primary text-white">You Can Hire Me!</a>
             
         </div>
     </div>
